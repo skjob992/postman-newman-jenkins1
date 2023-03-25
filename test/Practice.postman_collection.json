@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "d97cfd7f-072a-453d-adcb-3ad032239a5b",
+		"name": "Practice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21518022"
+	},
+	"item": [
+		{
+			"name": "variablesandobjects",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"name\",\"John Doe\");\r",
+							"var address={\r",
+							"    \r",
+							"        \"street\":\"Test\",\r",
+							"        \"number\":\"53\",\r",
+							"        \"zipCode\":\"67540\"\r",
+							"    }\r",
+							"pm.environment.set(\"address\",JSON.stringify(address));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":{{name}},\r\n    \"phone\":\"+432887676\",\r\n    \"address\":{{address}}\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "example.com",
+					"host": [
+						"example",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JSONPlaceholderreqs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"response=pm.response.json;\r",
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"sunt aut facere repellat provident occaecati excepturi optio reprehenderit\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
