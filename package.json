@@ -8,7 +8,7 @@
     
   },
   "scripts": {
-  "api-tests-production":"newman run/test/Practice.postman_collection.json"
+  "api-tests-production":"newman run test/Practice.postman_collection.json"
 },
   
   "author": "Steve <steve@home.org>",
